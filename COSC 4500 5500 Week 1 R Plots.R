@@ -50,9 +50,12 @@ if (isTRUE(all.equal(mean_age, median_age, tolerance = 0.1))) {
 dot_plot_age_weight <- ggplot(data, aes(x = AGE, y = WEIGHT)) +
   geom_point() +
   labs(x = "Age", y = "Weight", title = "Dot Plot of Age vs Weight")
+##create a scatter-style dot plot of age versus weight using ggplot
+##this defines the visualization so it can be reused and saved to a file
 png("dotplot_age_weight.png")
 print(dot_plot_age_weight)
 dev.off()
+##open a PNG device, render the plot to the image, then close the device to write the file
 
 ##STEM AND LEAF PLOT
 ##ideal for small-to-moderate data sets
@@ -62,10 +65,12 @@ dev.off()
 ##'leaves' represent each of the last digits
 ##multiple observations of the same value will be graphed multiple times
 stem_leaf_weight_output <- capture.output(stem(data$WEIGHT))
+##capture the stem-and-leaf table output for weight as text so it can be drawn to an image
 png("stem_leaf_weight.png", width = 800, height = 600)
 plot.new()
 text(0, 1, paste(stem_leaf_weight_output, collapse = "\n"), adj = c(0, 1))
 dev.off()
+##open a blank plotting canvas, draw the captured text, and save it as a PNG
 
 ##HISTOGRAM
 ##ideal for studying distributions of data derived from moderate-to-large data sets
@@ -75,6 +80,8 @@ dev.off()
 histogram_age_weight_plot <- ggplot(data, aes(x = AGE, weight = WEIGHT)) +
   geom_histogram(bins = 10) +
   labs(x = "Age", y = "Weighted Count", title = "Histogram of Age (Weighted by Weight)")
+##build a histogram of age with weights so bar heights reflect summed weights per age bin
 png("histogram_age_weight.png")
 print(histogram_age_weight_plot)
 dev.off()
+##write the histogram to a PNG file for sharing outside the R session
