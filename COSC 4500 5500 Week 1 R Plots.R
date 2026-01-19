@@ -34,11 +34,7 @@ mean_age
 median_age <- median(data$AGE, na.rm = TRUE)
 median_age
 ##If mean and median are very close, what does that tell you about the distribution?
-if (isTRUE(all.equal(mean_age, median_age, tolerance = 0.1))) {
-  message("Mean and median are close; the distribution appears roughly symmetric.")
-} else {
-  message("Mean and median differ; the distribution may be skewed.")
-}
+if (isTRUE(all.equal(mean_age, median_age, tolerance = 0.1))) message("Mean and median are close; the distribution appears roughly symmetric.") else message("Mean and median differ; the distribution may be skewed.")
 
 ##DOT PLOT
 ##best with small data sets
