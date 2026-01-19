@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 ##Marquette University
 ##COSC 4500/5500
 ##Walter Bialkowski, PhD, MS
